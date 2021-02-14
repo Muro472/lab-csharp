@@ -1,0 +1,93 @@
+#1
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a=");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("alpha=");
+            double alpha = Convert.ToDouble(Console.ReadLine());
+            double s = Math.Pow(a, 2) * (180 / Math.PI) * alpha;
+            Console.WriteLine("square = " + s);
+            Console.WriteLine("perrimeter = " + a * 4);
+
+        }
+    }
+}
+#2
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a=");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("b=");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("c=");
+            double c = Convert.ToDouble(Console.ReadLine());
+            double res = Math.Min(a, b) + Math.Pow(Math.Max(b,c),2);
+            Console.WriteLine(res);
+        }
+    }
+}
+#3
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("a x=");
+            double ax = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("a y=");
+            double ay = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("b x=");
+            double bx = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("b y=");
+            double by = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("c x=");
+            double cx = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("c y=");
+            double cy = Convert.ToDouble(Console.ReadLine());
+            double AB = Math.Sqrt(Math.Pow(bx - ax, 2) + Math.Pow(by - ay, 2));
+            double BC = Math.Sqrt(Math.Pow(cx - bx, 2) + Math.Pow(cy - by, 2));
+            double AC = Math.Sqrt(Math.Pow(cx - ax, 2) + Math.Pow(cy - ay, 2));
+            Console.WriteLine("max = " + Math.Max(AB, Math.Max(BC,AC)));
+        }
+    }
+}
+#4
+using System;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("n=");
+            double n = Convert.ToDouble(Console.ReadLine());
+            switch (n)
+            {
+                case 0 <= n && n < 5: Console.WriteLine('1');
+                    break;
+                case 5 <= n && n < 10: Console.WriteLine('2');
+                    break;
+                case 10 <= n && n < 15: Console.WriteLine('3');
+                    break;
+                default: Console.WriteLine('4');
+
+            }
+        }
+    }
+}
