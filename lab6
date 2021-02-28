@@ -1,0 +1,31 @@
+#2
+using System;
+
+namespace ConsoleTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("введіть число n");
+            int n = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("введіть число x");
+            double x = Convert.ToDouble(Console.ReadLine());
+            double[] arrey = new double[n];
+            double k = 0;
+            double fact = 1;
+            for(int i = 1; i < (n + 1); i++)
+            {
+                fact *= n;
+                k += Math.Pow((-1), 1 + i) * Math.Sin(n * x) * Math.Cos(fact * x);
+                arrey[i - 1] = k;
+                
+            }
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine(arrey[i]);
+            }
+
+        }
+    }
+}
