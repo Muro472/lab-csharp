@@ -1,0 +1,101 @@
+namespace lab_9
+{
+    class monitor
+    {
+        string manufac;
+        public int[] date
+        {
+            get { return date; }
+            set
+            {
+                if (value[0] < DateTime.Now.Year)
+                {
+                    date[0] = value[0];
+                }
+                else throw new Exception("wrong year");
+                if (value[1] <= 12)
+                {
+                    date[1] = value[1];
+                }
+                else throw new Exception("wrong month");
+                if (value[2] <= 31)
+                {
+                    date[2] = value[2];
+                }
+                else throw new Exception("wrong day");
+            }
+        }
+        public int[] purchase
+        {
+            get { return purchase; }
+            set
+            {
+                if (value[0] < DateTime.Now.Year && value[1] <= 12 && value[2] <= 31)
+                {
+                    purchase[0] = value[0];
+                    purchase[1] = value[1];
+                    purchase[2] = value[2];
+                }
+                else throw new Exception("wrong");
+            }
+        }
+
+        public string type
+        {
+            get { return type; }
+            set
+            {
+                if (value == "wide" && value == "ultrawide" && value == "overwide")
+                {
+                    type = value;
+                }
+                else throw new Exception("wrong");
+            }
+        }
+
+        public int[] res
+        {
+            get { return res; }
+            set
+            {
+                if( value[0] > 0 && value[1] > 0)
+                {
+                    res[0] = value[0];
+                    res[1] = value[1];
+                }
+            }
+        }
+
+        public monitor(string manufac, int[] date,int[] purchase, string type, int[] res)
+        {
+            this.manufac = manufac;
+            this.date = date;
+            this.purchase = purchase;
+            this.type = type;
+            this.res = res;
+        }
+
+        public int getAge()
+        {
+            int age = manufac[0] - DateTime.Now.Year;
+            if (manufac[1] > DateTime.Now.Month && manufac[2] > DateTime.Now.Day) age++;
+            return age;
+        }
+
+        public bool if_fit(int x, int y)
+        {
+            if (res[0] > x && res[1] > y) return true;
+            return false;
+        }
+
+        public double[] coof(int x, int y)
+        {
+            double[] arr = new double[2];
+            arr[0] = res[0] / 100 * x;
+            arr[1] = res[1] / 100 * y;
+            return arr;
+        }
+
+
+    }
+}
