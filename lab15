@@ -1,0 +1,160 @@
+class Da : IDoMath
+    {
+        private int changeNumber(string number)
+        {
+            int I = 1;
+            int V = 5;
+            int X = 10;
+            int L = 50;
+            string[] numsS = number.Split(' ');
+            int[] numsI = new int[numsS.Length];
+
+            for (int i = 0; i < numsS.Length; i++)
+            {
+                switch (numsS[i])
+                {
+                    case "I":
+                        numsI[i] = I;
+                        break;
+                    case "V":
+                        numsI[i] = V;
+                        break;
+                    case "X":
+                        numsI[i] = X;
+                        break;
+                    case "L":
+                        numsI[i] = L;
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            int sum = 0;
+
+            for (int i = 0; i < numsS.Length; i++)
+            {
+                try
+                {
+                    if (numsI[i] <= numsI[i - 1] && numsI[i] >= numsI[i + 1])
+                    {
+                        sum += numsI[i];
+                    }
+                    else
+                    {
+                        sum += numsI[i] - 2 * numsI[i - 1];
+                    }
+                }
+                catch
+                {
+                    if (i == 0)
+                    {
+                        sum = numsI[0];
+                    }
+                    else if (numsI[i] <= numsI[i - 1])
+                    {
+                        sum += numsI[i];
+                    }
+                    else
+                    {
+                        sum -= numsI[i];
+                    }
+
+                }
+            }
+            return sum;
+        }
+
+        private int LeastCommonDenominator(ref int[] A1, ref int[] A2)
+        {
+            int leastCommonDenominator = A1[1] * A2[1];
+
+            A1[0] *= A2[1];
+            A2[0] *= A1[1];
+            return leastCommonDenominator;
+        }
+
+
+        //------------------
+        public int[] sum(int[] A1, int[] A2)
+        {
+            A2[1] = LeastCommonDenominator(ref A1, ref A2);
+            int[] res = { A1[0] + A2[0], A2[1] };
+            return res;
+        }
+
+        public int[] sum(int I1, int I2)
+        {
+            int[] A1 = { I1, 1 };
+            int[] A2 = { I2, 1 };
+            return sum(A1, A2);
+        }
+
+        public int[] sum(string S1, string S2)
+        {
+            int[] A1 = { changeNumber(S1), 1 };
+            int[] A2 = { changeNumber(S2), 1 };
+            return sum(A1, A2);
+        }
+        //------------------
+        public int[] sub(int[] A1, int[] A2)
+        {
+            A2[1] = LeastCommonDenominator(ref A1, ref A2);
+            int[] res = { A1[0] - A2[0], A2[1] };
+            return res;
+        }
+
+        public int[] sub(int I1, int I2)
+        {
+            int[] A1 = { I1, 1 };
+            int[] A2 = { I2, 1 };
+            return sub(A1, A2);
+        }
+
+        public int[] sub(string S1, string S2)
+        {
+            int[] A1 = { changeNumber(S1), 1 };
+            int[] A2 = { changeNumber(S2), 1 };
+            return sub(A1, A2);
+        }
+        //------------------
+        public int[] mul(int[] A1, int[] A2)
+        {
+            int[] res = { A1[0] * A2[0], A1[1] * A2[1] };
+            return res;
+        }
+
+        public int[] mul(int I1, int I2)
+        {
+            int[] A1 = { I1, 1 };
+            int[] A2 = { I2, 1 };
+            return dev(A1, A2);
+        }
+
+        public int[] mul(string S1, string S2)
+        {
+            int[] A1 = { changeNumber(S1), 1 };
+            int[] A2 = { changeNumber(S2), 1 };
+            return mul(A1, A2);
+        }
+        //------------------
+        public int[] dev(int[] A1, int[] A2)
+        {
+            int[] res = { A1[0] / A2[1], A1[1] / A2[0] };
+            return res;
+        }
+
+        public int[] dev(int I1, int I2)
+        {
+            int[] A1 = { I1, 1 };
+            int[] A2 = { I2, 1 };
+            return dev(A1, A2);
+        }
+
+        public int[] dev(string S1, string S2)
+        {
+            int[] A1 = { changeNumber(S1), 1 };
+            int[] A2 = { changeNumber(S2), 1 };
+            return dev(A1, A2);
+        }
+    }
