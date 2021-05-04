@@ -1,0 +1,60 @@
+#1
+class Tarrey
+    {
+        public int[] arrey;
+        public int length;
+
+        public Tarrey(int[] arrey)
+        {
+            this.arrey = arrey;
+            length = arrey.Length;
+        }
+
+        public Tarrey(Tarrey r)
+        {
+            this.arrey = r.arrey;
+            this.length = r.length;
+        }
+
+        public Tarrey()
+        {
+            this.arrey = new int[0];
+            this.length = 0;
+        }
+
+        public int min()
+        {
+            int min = arrey[0];
+            for (int i = 0; i < arrey.Length; i++)
+            {
+                if (min > arrey[i]) min = arrey[i];
+            }
+            return min;
+        }
+
+        public int max()
+        {
+            int max = arrey[0];
+            for (int i = 0; i < arrey.Length; i++)
+            {
+                if (max < arrey[i]) max = arrey[i];
+            }
+            return max;
+        }
+
+        public int sum()
+        {
+            int sum = 0;
+            for (int i = 0; i < arrey.Length; i++)
+            {
+                sum += arrey[i];
+            }
+            return sum;
+        }
+
+
+
+    }
+    
+    
+#2
