@@ -1,0 +1,10 @@
+C:\Users\Miroslav\source\repos\pong\bin\Debug\pong.exe.config
+C:\Users\Miroslav\source\repos\pong\bin\Debug\pong.exe
+C:\Users\Miroslav\source\repos\pong\bin\Debug\pong.pdb
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.csprojAssemblyReference.cache
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.Form1.resources
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.Properties.Resources.resources
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.csproj.GenerateResource.cache
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.csproj.CoreCompileInputs.cache
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.exe
+C:\Users\Miroslav\source\repos\pong\obj\Debug\pong.pdb
