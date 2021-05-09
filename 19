@@ -1,0 +1,45 @@
+#1
+            OpenFileDialog FileDialog = new OpenFileDialog();
+            FileDialog.ShowDialog();
+            StreamReader Sw = new StreamReader(FileDialog.FileName);
+            string nums = Sw.ReadLine();
+            string[] numbs = nums.Split(' ');
+            int counter = 0;
+            for (int i = 0; i < numbs.Length; i++)
+            {
+                if (Convert.ToInt32(numbs[i]) % 2 == 0) counter++;
+            }
+            MessageBox.Show(Convert.ToString(counter));
+#2
+            OpenFileDialog FileDialog = new OpenFileDialog();
+            FileDialog.ShowDialog();
+            StreamReader SR = new StreamReader(FileDialog.FileName);
+            StreamWriter SW1 = new StreamWriter("../../V.TXT");
+            StreamWriter SW2 = new StreamWriter("../../D.TXT");
+            string[] nums = SR.ReadLine().Split(' ');
+            int Vcounter = 0;
+            int Dcounter = 0;
+            int num;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                num = Convert.ToInt32(nums[i]);
+                if(num >= 0)
+                {
+                    Dcounter++;
+                    SW2.WriteLine(Convert.ToString(num));
+                }
+                else
+                {
+                    Vcounter++;
+                    SW1.WriteLine(Convert.ToString(num));
+                }
+            }
+            
+
+            if (Vcounter > Dcounter) MessageBox.Show("додатніх більше");
+            else if (Dcounter > Vcounter) MessageBox.Show("відємних меньше");
+            else MessageBox.Show("однаково відємнтх і додатніх");
+            SR.Close();
+            SW1.Close();
+            SW2.Close();
+#3
