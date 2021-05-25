@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace pong
@@ -126,12 +127,38 @@ namespace pong
             MainPanel.Controls.Clear();
             gameField.StopTimer();
             createUI();
+
+            SaveFileDialog ofd = new SaveFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(ofd.FileName);
+                sw.WriteLine(Convert.ToString(gameField.score1n));
+                sw.WriteLine(Convert.ToString(gameField.score2n));
+                sw.Close(); 
+            }
         }
 
         private void StartButton(object sender, EventArgs e)
         {
             MainPanel.Controls.Clear();
             createGame();
+            gameField.StopTimer();
+
+            OpenFileDialog ofd = new OpenFileDialog();
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(ofd.FileName);
+
+                gameField.score1n = Convert.ToInt32(sr.ReadLine());
+                gameField.score1.Text = Convert.ToString(gameField.score1n);
+
+                gameField.score2n = Convert.ToInt32(sr.ReadLine());
+                gameField.score2.Text = Convert.ToString(gameField.score2n);
+
+                sr.Close();
+            }
+            gameField.StartTimer();
         }
 
         private void ExitButton(object sender, EventArgs e)
@@ -193,7 +220,13 @@ namespace pong
             P1.Top = windowSizeY / 10 * 3;
             P1.Left = windowSizeX / 10;
             MainPanel.Controls.Add(P1);
-            createLbels(P1, font, "P1", "movement: W S", "acceleration: D");
+            //createLbels(P1, font, "P1", "movement: W S", "acceleration: D");
+
+            BigLabel bl1 = new BigLabel(P1, "P1", "movement: W S", "acceleration: D");
+            P1.Controls.Add(bl1);
+
+
+
 
             P2 = new Panel();
             P2.Width = windowSizeX / 10 * 2;
@@ -201,7 +234,11 @@ namespace pong
             P2.Top = windowSizeY / 10 * 3;
             P2.Left = windowSizeX / 10 * 7;
             MainPanel.Controls.Add(P2);
-            createLbels(P2, font, "P2", "movement: UP Down", "acceleration: Left");
+            //createLbels(P2, font, "P2", "movement: UP Down", "acceleration: Left");
+
+            BigLabel bl2 = new BigLabel(P2, "P2", "movement: UP Down", "acceleration: Left");
+            P2.Controls.Add(bl2);
+
         }
 
 

@@ -15,11 +15,11 @@ namespace pong
         private int MaxDownForP;
         private Panel parent;
 
-        private Label score1;
-        private int score1n;
+        public Label score1;
+        public int score1n;
 
-        private Label score2;
-        private int score2n;
+        public Label score2;
+        public int score2n;
 
         private Panel P1;
         private int P1Speed;
@@ -300,7 +300,7 @@ namespace pong
 
         public void StopTimer()
         {
-            timer.Enabled = true;
+            timer.Enabled = false;
         }
         
         private void RandomizeBall()
